@@ -29,6 +29,10 @@ public class controller extends HttpServlet {
 		String currentLogin=(String) request.getSession().getAttribute("login");
 		
 		System.out.println("coucou");
+		if(todo.equals("inscript")) {
+			request.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
+			
+		}
 		
 		if(currentLogin==null) {
 			if((todo!=null) && (todo.equals("connect"))) {
