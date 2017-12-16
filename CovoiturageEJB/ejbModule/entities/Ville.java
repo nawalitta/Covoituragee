@@ -11,8 +11,7 @@ public class Ville {
 	
     @Id @GeneratedValue
 	private int idVille; 
-    
-    
+  
 	private String LabelVille ;
 	public int getIdVille() {
 		return idVille;
