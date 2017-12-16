@@ -1,13 +1,18 @@
 package entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
 @Entity
 public class Ville {
-    @Id
+	
+	
+    @Id @GeneratedValue
 	private int idVille; 
+    
+    
 	private String LabelVille ;
 	public int getIdVille() {
 		return idVille;
