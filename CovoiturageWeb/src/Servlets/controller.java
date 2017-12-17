@@ -28,11 +28,6 @@ public class controller extends HttpServlet {
 		
 		String currentLogin=(String) request.getSession().getAttribute("login");
 		
-		System.out.println("coucou");
-		if(todo.equals("inscript")) {
-			request.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
-			
-		}
 		
 		if(currentLogin==null) {
 			if((todo!=null) && (todo.equals("connect"))) {
@@ -41,7 +36,8 @@ public class controller extends HttpServlet {
 				System.out.println(facade.utilisateurValide(login,password));
 				if(facade.utilisateurValide(login,password)) {
 				request.getSession().setAttribute("login", login);
-				return;
+				request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+
 				}
 			}
 				request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
@@ -52,9 +48,7 @@ public class controller extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

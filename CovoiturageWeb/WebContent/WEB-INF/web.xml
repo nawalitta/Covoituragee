@@ -7,5 +7,19 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    
+    
+    
   </welcome-file-list>
+  
+  
+  <servlet> 
+  <servlet-name> TrajetController </servlet-name>
+    <servlet-class> Servlets.TrajetController </servlet-class>
+  
+  </servlet>
+  <servlet-mapping> 
+    <servlet-name> TrajetController </servlet-name>
+  <url-pattern> /trajet</url-pattern>
+  </servlet-mapping>
 </web-app>

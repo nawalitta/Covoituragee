@@ -40,11 +40,16 @@
 				<div class="menu">
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="index.html">Home</a></li>
-						<li role="presentation"><a href="services.html">Services</a></li>
-						<li role="presentation"><a href="blog.html">Blog</a></li>
+						<li role="presentation"><a href="TrajetController">Proposer un trajet</a></li>
 						<li role="presentation"><a href="portfolio.html">Mon Compte</a></li>
-						<li role="presentation"><a href="contact.html">Contact</a></li>						
+						<li role="presentation"><a href="TrajetController?&todo=clickRecherche"">Contact</a></li>						
 					</ul>
+					
+					<form method="post" action="trajet" >
+					<button  type="submit" name="todo" value="listerTrajets" >Services</button>
+					
+					</form>
+					
 				</div>
 			</div>			
 		</div>

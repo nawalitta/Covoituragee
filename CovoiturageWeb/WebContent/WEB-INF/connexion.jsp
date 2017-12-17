@@ -43,10 +43,10 @@
 				<div class="menu">
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="index.jsp">Home</a></li>
-						<li role="presentation"><a href="services.html">Services</a></li>
-						<li role="presentation"><a href="blog.html">Blog</a></li>
+						<li role="presentation"><a href="TrajetController?&todo=listerTrajet">Services</a></li>
+						<li role="presentation" ><a href="TrajetController">Ajouter Trajet</a></li>
 						<li role="presentation"><a href="connexion.jsp">Mon Compte</a></li>
-						<li role="presentation"><a href="contact.html">Contact</a></li>						
+						<li role="presentation"><a href="TrajetController?&todo=clickRecherche">Contact</a></li>						
 					</ul>
 				</div>
 			</div>			
@@ -71,7 +71,7 @@
       </form>
 					</div>
 					<hr>
-					<p class="text-center">Vous n’avez pas de compte? <a href ="controller?todo=inscript"> Inscrivez-vous </a><p>
+					
 				</div>
 			</div>
 		</div>
