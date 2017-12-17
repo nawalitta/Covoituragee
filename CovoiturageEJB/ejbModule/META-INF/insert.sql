@@ -25,6 +25,7 @@ insert into  ville (idville ,labelville) VALUES (20,'Caen') ;
 insert into  ville (idville ,labelville) VALUES (21,'Tours') ;
 insert into  ville (idville ,labelville) VALUES (22,'Clermont-Ferrand') ;
 
+
 insert into gabarit(libelleGabarit) VALUES ('urbaine') ;
 insert into gabarit(libelleGabarit) VALUES ('compacte') ;
 insert into gabarit(libelleGabarit) VALUES ('SUV') ;
