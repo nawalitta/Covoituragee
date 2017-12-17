@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -10,11 +12,29 @@ public class Trajet {
 	private int idTrajet;
 	private String heureDepart;
 	private String datedepart;
+	private int nbrPlaces;
+
+	@ManyToOne
+	@JoinColumn(name= "utilisateur_id")
+	private Utilisateur utilisateur;
+	
 	@OneToOne
 	private Ville villeDepart;
+	
+	public Trajet() {
+		
+	}
+	
+	public Trajet(String heureDepart, String datedepart, Ville villeDepart, Ville villeArrive, int nbrPlaces,Utilisateur utilisateur) {
+		this.heureDepart = heureDepart;
+		this.datedepart = datedepart;
+		this.villeDepart = villeDepart;
+		this.villeArrive = villeArrive;
+		this.nbrPlaces = nbrPlaces;
+		this.utilisateur =utilisateur ;
+	}
 	@OneToOne 
 	private Ville villeArrive;
-	private int nbrPlaces;
 	public int getIdTrajet() {
 		return idTrajet;
 	}
