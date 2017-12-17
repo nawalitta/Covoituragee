@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Utilisateur")
+
 public class Utilisateur {
 	@Id  
 	private String login;
