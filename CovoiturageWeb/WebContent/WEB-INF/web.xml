@@ -8,4 +8,28 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>DeconnexionController</servlet-name>
+    <servlet-class>Servlets.DeconnexionController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VoitureController</servlet-name>
+    <servlet-class>Servlets.VoitureController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConnexionController</servlet-name>
+    <servlet-class>Servlets.ConnexionController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnexionController</servlet-name>
+    <url-pattern>/connexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VoitureController</servlet-name>
+    <url-pattern>/voiture</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeconnexionController</servlet-name>
+    <url-pattern>/deconnexion</url-pattern>
+  </servlet-mapping>
 </web-app>
