@@ -1,16 +1,24 @@
 package entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Trajet")
 public class Trajet {
 	
+
 	@Id   @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTrajet;
 	private String heureDepart;
@@ -30,11 +38,21 @@ public class Trajet {
 	}
 	@OneToOne
 	private Ville villeDepart;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.trajet", cascade = CascadeType.ALL)
+	private List<Reservation> listReservation;
 	
 	public Trajet() {
 		
 	}
 	
+	public List<Reservation> getListReservation() {
+		return listReservation;
+	}
+
+	public void setListReservation(List<Reservation> listReservation) {
+		this.listReservation = listReservation;
+	}
+
 	public Trajet(String heureDepart, String datedepart, Ville villeDepart, Ville villeArrive, int nbrPlaces,Utilisateur utilisateur) {
 		this.heureDepart = heureDepart;
 		this.datedepart = datedepart;

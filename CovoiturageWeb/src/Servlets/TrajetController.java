@@ -123,11 +123,7 @@ public class TrajetController extends HttpServlet {
 			String Ville_depart = request.getParameter("vdepart"); 
 			String Ville_arrive = request.getParameter("varrive");
 			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive)) ; 
-			
-			
 			request.setAttribute("listTrajets", trajets);
-			
-			
 			request.getRequestDispatcher("/WEB-INF/resultatRechercheTrajet.jsp").forward(request, response);
 			return ;
 			
