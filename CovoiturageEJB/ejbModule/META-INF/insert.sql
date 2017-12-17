@@ -25,11 +25,21 @@ insert into  ville (idville ,labelville) VALUES (20,'Caen') ;
 insert into  ville (idville ,labelville) VALUES (21,'Tours') ;
 insert into  ville (idville ,labelville) VALUES (22,'Clermont-Ferrand') ;
 
+<<<<<<< HEAD
 insert into gabarit(libelleGabarit) VALUES ('urbaine') ;
 insert into gabarit(libelleGabarit) VALUES ('compacte') ;
 insert into gabarit(libelleGabarit) VALUES ('SUV') ;
 insert into gabarit(libelleGabarit) VALUES ('break') ;
 insert into gabarit(libelleGabarit) VALUES ('routière') ;
 insert into gabarit(libelleGabarit) VALUES ('fourgonnette') ;
+
+
+insert into trajet  VALUES (0,12,13,34,'admin',3,4) ;
+insert into trajet  VALUES (1,12,13,34,'admin',3,4) ;
+insert into trajet  VALUES (2,12,13,34,'admin',3,4) ;
+insert into trajet  VALUES (3,12,13,34,'admin',3,4) ;
+
+
+
 
 
