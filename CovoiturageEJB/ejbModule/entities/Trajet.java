@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Trajet")
 public class Trajet {
+	
 	@Id  
 	private int idTrajet;
 	private String heureDepart;

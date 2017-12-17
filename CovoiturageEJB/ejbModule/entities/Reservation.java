@@ -16,6 +16,7 @@ import javax.persistence.Table;
   @AssociationOverride(name = "id.trajet", joinColumns = @JoinColumn(name = "trajet_id")) })
 
 public class Reservation {
+	
 	@EmbeddedId
 	 private ReservationPK id = new ReservationPK();
 
