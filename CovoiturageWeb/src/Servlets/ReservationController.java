@@ -29,7 +29,6 @@ public class ReservationController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-
 		String todo=request.getParameter("todo");
 		String currentLogin= (String) request.getSession().getAttribute("login");
 		Utilisateur u = facade.findUtilisateur( currentLogin ) ;
@@ -38,6 +37,7 @@ public class ReservationController extends HttpServlet {
 			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 			return ; 
 			}
+		
 		
 		if((todo!=null) && (todo.equals("reserverTrajet"))) {
 			int trajet_id = Integer.parseInt(request.getParameter("trajet_id"));
