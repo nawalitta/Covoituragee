@@ -31,10 +31,6 @@ public class TrajetController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String todo=request.getParameter("todo");
-
-		
-		
-		
 		String currentLogin= (String) request.getSession().getAttribute("login");
 		Utilisateur u = facade.findUtilisateur( currentLogin ) ;
 		
@@ -49,42 +45,43 @@ public class TrajetController extends HttpServlet {
 		
 		if((todo!=null) && (todo.equals("clickModifiertrajet"))) {
 			
-		int trajet_id = (int) request.getSession().getAttribute("trajet_id");
-		Trajet trajeta = trajetfcd.getTrajet(trajet_id) ; 
-
-		String vdepart = request.getParameter("vdepart");
-		String varrive = request.getParameter("varrive");
-		String heure_depart = request.getParameter("hdepart"); 
-		String date_depart = request.getParameter("ddepart");
-		String nbr_place = request.getParameter("nbrp");
-		
-		System.out.println(vdepart);
-		 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
-		 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
-		
-		Trajet trajet = new Trajet(heure_depart, date_depart, villed, villea,Integer.parseInt( nbr_place),u);
-		 trajetfcd.modifierTrajet(trajet); 
-
-		request.getRequestDispatcher("/trajet?todo=listerTrajets").forward(request, response);
-	}
-		if((todo!=null) && (todo.equals("modifierTrajet"))){
-			List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin);
-			int trajet_id = Integer.parseInt(request.getParameter("trajet_id"));
-			request.getSession().setAttribute("trajet_id",trajet_id );
-			Trajet trajet = trajetfcd.getTrajet(trajet_id) ; 
+					int trajet_id = (int) request.getSession().getAttribute("trajet_id");
+					Trajet trajeta = trajetfcd.getTrajet(trajet_id) ; 
 			
-			request.setAttribute("vdepart", trajet.getVilleDepart());
-			request.setAttribute("varrive", trajet.getVilleArrive()) ; 
-			request.setAttribute("hdepart", trajet.getHeureDepart());
-			request.setAttribute("ddepart", trajet.getDatedepart()) ; 
-			request.setAttribute("nbrplc", trajet.getNbrPlaces()) ; 
-
-			request.getRequestDispatcher("/WEB-INF/ModifierTrajet.jsp").forward(request, response);
-			return ;
+					String vdepart = request.getParameter("vdepart");
+					String varrive = request.getParameter("varrive");
+					String heure_depart = request.getParameter("hdepart"); 
+					String date_depart = request.getParameter("ddepart");
+					String nbr_place = request.getParameter("nbrp");
+					
+					System.out.println(vdepart);
+					 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
+					 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
+					
+					Trajet trajet = new Trajet(heure_depart, date_depart, villed, villea,Integer.parseInt( nbr_place),u);
+					 trajetfcd.modifierTrajet(trajet); 
+			
+					request.getRequestDispatcher("/trajet?todo=listerTrajets").forward(request, response);
+	     }
+		
+		if((todo!=null) && (todo.equals("modifierTrajet"))){
+					List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin);
+					int trajet_id = Integer.parseInt(request.getParameter("trajet_id"));
+					request.getSession().setAttribute("trajet_id",trajet_id );
+					Trajet trajet = trajetfcd.getTrajet(trajet_id) ; 
+					
+					request.setAttribute("vdepart", trajet.getVilleDepart());
+					request.setAttribute("varrive", trajet.getVilleArrive()) ; 
+					request.setAttribute("hdepart", trajet.getHeureDepart());
+					request.setAttribute("ddepart", trajet.getDatedepart()) ; 
+					request.setAttribute("nbrplc", trajet.getNbrPlaces()) ; 
+		
+					request.getRequestDispatcher("/WEB-INF/ModifierTrajet.jsp").forward(request, response);
+					return ;
 		}
 		
 			
-				if((todo!=null) && (todo.equals("delTrajet"))) {
+		if((todo!=null) && (todo.equals("delTrajet"))) {
 					int trajet_id = Integer.parseInt(request.getParameter("trajet_id"));
 					
 					
@@ -97,26 +94,20 @@ public class TrajetController extends HttpServlet {
 				
 					request.getRequestDispatcher("/trajet?todo=listerTrajets").forward(request, response);
 					return ; 
-				}
+		}
 				
 		if((todo!=null) && (todo.equals("listerTrajets"))) {
-			
 			List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin) ;
 			request.setAttribute("listTrajets", trajets);
-
 			System.out.println(trajets.size());
 			request.getRequestDispatcher("/WEB-INF/mesTrajets.jsp").forward(request, response);
-
 			return ; 
 		}
 		
 		if((todo!=null) && (todo.equals("clickRecherche"))) {
-			
 			request.getRequestDispatcher("/WEB-INF/RechercherTrajet.jsp").forward(request, response);
-			return ;
-			
+			return ;	
 		}
-		
 		
 		if((todo!=null) && (todo.equals("recherchetrajet"))) {
 			
@@ -130,31 +121,21 @@ public class TrajetController extends HttpServlet {
 			
 		}
 		
-		
-		
 		if((todo!=null) && (todo.equals("ajoutrajet"))) {
 		
-		String vdepart = request.getParameter("vdepart");
-		
-		String varrive = request.getParameter("varrive");
-		
-		String heure_depart = request.getParameter("hdepart"); 
-		String date_depart = request.getParameter("ddepart");
-		System.out.println(heure_depart);
-		System.out.println(date_depart);
-
-		String nbr_place = request.getParameter("nbrp");
-		
-		 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
-		 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
-		
-	
-		Trajet trajet = new Trajet(heure_depart, date_depart, villed, villea,Integer.parseInt( nbr_place),u);
-		trajetfcd.add(trajet);
-		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-		
-		return ; 
-
+					String vdepart = request.getParameter("vdepart");
+					String varrive = request.getParameter("varrive");
+					String heure_depart = request.getParameter("hdepart"); 
+					String date_depart = request.getParameter("ddepart");
+					System.out.println(heure_depart);
+					System.out.println(date_depart);
+					String nbr_place = request.getParameter("nbrp");
+					 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
+					 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
+					Trajet trajet = new Trajet(heure_depart, date_depart, villed, villea,Integer.parseInt( nbr_place),u);
+					trajetfcd.add(trajet);
+					request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+					return ; 
 		}
 
 		request.getRequestDispatcher("/WEB-INF/AjouterTrajet.jsp").forward(request, response);

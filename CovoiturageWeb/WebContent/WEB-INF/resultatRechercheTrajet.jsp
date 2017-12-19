@@ -26,7 +26,8 @@
 							<td class="info" >${trajet.heureDepart}</td>
 							<td class="success">${trajet.nbrPlaces}</td>
 						<td   class="danger"> <a class="pure-button"
-              href="TrajetController?trajet_id=${trajet.idTrajet }&todo=delTrajet">Réserver</a></td> 
+						
+              href="ReservationController?trajet_id=${trajet.idTrajet }&todo=reserverTrajet">Réserver</a></td> 
 							
 							
 						</tr>

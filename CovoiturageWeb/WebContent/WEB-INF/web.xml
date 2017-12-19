@@ -18,7 +18,24 @@
     <servlet-name> TrajetController </servlet-name>
   <url-pattern> /trajet</url-pattern>
 </servlet-mapping>
+
+
+<servlet> 
+  <servlet-name> ReservationController </servlet-name>
+    <servlet-class> Servlets.ReservationController  </servlet-class>
+  
+  </servlet>
+  <servlet-mapping> 
+    <servlet-name>  ReservationController  </servlet-name>
+  <url-pattern> /reservation</url-pattern>
+</servlet-mapping>
+
+
+
   <servlet>
+  
+  
+  
     <servlet-name>DeconnexionController</servlet-name>
     <servlet-class>Servlets.DeconnexionController</servlet-class>
   </servlet>

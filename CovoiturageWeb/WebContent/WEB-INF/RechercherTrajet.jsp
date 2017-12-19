@@ -39,7 +39,6 @@
 					</div>
 					<hr>
 
-			 <p class="text-center">Vous n’avez pas de compte? <a href ="/CovoiturageWeb/connexion?todo=inscript"> Inscrivez-vous </a><p>
 				</div>
 			</div>
 		</div>

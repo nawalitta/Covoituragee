@@ -17,9 +17,15 @@ import javax.persistence.Table;
 
 public class Reservation {
 	
+	
 	@EmbeddedId
-	 private ReservationPK id = new ReservationPK();
+	 private ReservationPK id;
 
+	public Reservation(ReservationPK id, int nbrPlaceReserve, boolean confirme) {
+		this.id = id;
+		this.nbrPlaceReserve = nbrPlaceReserve;
+		this.confirme = confirme;
+	}
 	private int nbrPlaceReserve;
 	private boolean confirme;
 	public int getNbrPlaceReserve() {

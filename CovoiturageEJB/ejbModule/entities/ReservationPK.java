@@ -21,6 +21,11 @@ public class ReservationPK implements Serializable {
 		return user;
 	}
 
+	public ReservationPK(Utilisateur user, Trajet trajet) {
+		this.user = user;
+		this.trajet = trajet;
+	}
+
 	public void setUser(Utilisateur user) {
 		this.user = user;
 	}

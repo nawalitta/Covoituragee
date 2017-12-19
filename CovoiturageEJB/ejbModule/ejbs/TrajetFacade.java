@@ -26,10 +26,6 @@ public class TrajetFacade {
 	
 	public void add(Trajet trajet) {
 		em.persist(trajet);
-		
-		
-		
-		
 	}
 	
 	
