@@ -14,6 +14,9 @@
                               <button class="btn btn-lg btn-primary btn-block" type="submit" name="voiture" value="modifier" >Modifier voiture</button>
                        <% } %>
                       </form>
+                      <form class="form-signin" method="post" action="trajet">
+                              <button class="btn btn-lg btn-primary btn-block" type="submit" name="todo" value="listerTrajets" >Lister les trajets planifiés</button>                              
+                      </form>
                       <form class="form-signin" method="post" action="reservation">
                               <button class="btn btn-lg btn-primary btn-block" type="submit" name="todo" value="listerMesReservations" >Lister les reservations</button>
                                <button class="btn btn-lg btn-primary btn-block" type="submit" name="todo" value="listerMesNotifications" >Lister les notifications</button>

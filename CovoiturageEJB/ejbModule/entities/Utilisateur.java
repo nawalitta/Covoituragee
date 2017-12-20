@@ -21,10 +21,6 @@ public class Utilisateur {
 	private String mail;
 	private String nomComplet;
 	private String numeroTel;
-	
-	
-	
-	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.user")
 	private List<Reservation> listReservation;
 	public List<Reservation> getListReservation() {
