@@ -1,5 +1,8 @@
 # Covoituragee
 
+
+url de connexion = http://localhost:8085/CovoiturageWeb/
+
 - Un client peut s’inscrire dans le site (Déclarer sa voiture et proposer tant de réservation qu’il veut)
 - Celui qui propose un trajet peut lui même devenir un client quand il veut .
 - Un trajet a 0 à plusieurs étapes .
