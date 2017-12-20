@@ -20,7 +20,6 @@
       </form>
 					</div>
 					<hr>
-					<!--  <p class="text-center">Vous n’avez pas de compte? <a href =""> Inscrivez-vous </a><p>-->
 				</div>
 			</div>
 		</div>

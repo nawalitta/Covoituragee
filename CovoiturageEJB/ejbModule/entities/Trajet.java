@@ -64,7 +64,8 @@ public class Trajet {
 	}
 	@OneToOne
 	private Ville villeDepart;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.trajet", cascade = CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.trajet")
 	private List<Reservation> listReservation;
 	
 	public Trajet() {
@@ -88,6 +89,7 @@ public class Trajet {
 		this.nbrEtapes = nbrEtapes;
 		this.prix=prix ;
 		this.utilisateur =utilisateur ;
+		
 	}
 	@OneToOne 
 	private Ville villeArrive;

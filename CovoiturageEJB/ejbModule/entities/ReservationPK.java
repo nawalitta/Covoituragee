@@ -9,9 +9,7 @@ import javax.persistence.ManyToOne;
 
 public class ReservationPK implements Serializable {
 	
-	public ReservationPK() {
-		super();
-	}
+	
 
 	private static final long serialVersionUID = 1L;
 	
@@ -20,6 +18,10 @@ public class ReservationPK implements Serializable {
 	
 	@ManyToOne
 	private Trajet trajet;
+	
+	public ReservationPK() {
+		
+	}
 
 	public Utilisateur getUser() {
 		return user;

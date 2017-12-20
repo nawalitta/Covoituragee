@@ -56,6 +56,7 @@ public class Facade {
 			user.setMail(mail);
 			user.setNomComplet(nom);
 			user.setNumeroTel(num);
+			user.setHasVoiture(false);
 			em.persist(user);
 			return true;
 		}
@@ -80,6 +81,8 @@ public class Facade {
 			voiture.setProprietaire(u);
 			voiture.setGabarit(g);
 			em.persist(voiture);
+			u.setHasVoiture(true);
+			em.merge(u);
 			return true;
 		}
 		
@@ -94,6 +97,8 @@ public class Facade {
 			return false;
 		}else {
 			em.remove(voiture);
+			u.setHasVoiture(false);
+			em.merge(u);
 			return true;
 		}
 		

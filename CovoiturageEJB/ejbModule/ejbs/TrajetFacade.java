@@ -1,6 +1,7 @@
 package ejbs;
 
-import java.util.Date;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import entities.Reservation;
 import entities.Trajet;
 import entities.Utilisateur;
 import entities.Ville;
@@ -78,6 +80,13 @@ public class TrajetFacade {
 		 q.setParameter(3, d) ;
 
 		 return q.getResultList() ;
+		
+	}
+	
+	public ArrayList<Reservation> getListReservationTrajet(int trajet_id){
+		Query q = em.createQuery("From Reservation t where t.id.trajet.idTrajet=?");
+		q.setParameter(1, trajet_id) ;
+		return (ArrayList<Reservation>) q.getResultList() ;
 		
 	}
 

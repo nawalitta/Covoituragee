@@ -40,12 +40,32 @@ public class TrajetController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String todo=request.getParameter("todo");
 		String currentLogin= (String) request.getSession().getAttribute("login");
-		Utilisateur u = facade.findUtilisateur( currentLogin ) ;
+		Utilisateur u  ;
 		
 
 		List<Ville> villes = trajetfcd.getAllVille() ;
 		request.setAttribute("listville", villes);
 		
+		if((todo!=null) && (todo.equals("clickRecherche"))) {
+			request.getRequestDispatcher("/WEB-INF/RechercherTrajet.jsp").forward(request, response);
+			return ;	
+		}
+		
+		
+		if((todo!=null) && (todo.equals("recherchetrajet"))) {
+			
+			
+			String Ville_depart = request.getParameter("vdepart"); 
+			String Ville_arrive = request.getParameter("varrive");
+			String Date_depart = request.getParameter("ddepart");
+
+			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive),Date_depart) ; 
+			request.setAttribute("listTrajets", trajets);
+			request.getRequestDispatcher("/WEB-INF/resultatRechercheTrajet.jsp").forward(request, response);
+			return ;
+			
+			
+		}
 		if(currentLogin==null) {
 		
 			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
@@ -116,25 +136,7 @@ public class TrajetController extends HttpServlet {
 			return ; 
 		}
 		
-		if((todo!=null) && (todo.equals("clickRecherche"))) {
-			request.getRequestDispatcher("/WEB-INF/RechercherTrajet.jsp").forward(request, response);
-			return ;	
-		}
-		
-		if((todo!=null) && (todo.equals("recherchetrajet"))) {
-			
-			
-			String Ville_depart = request.getParameter("vdepart"); 
-			String Ville_arrive = request.getParameter("varrive");
-			String Date_depart = request.getParameter("ddepart");
-
-			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive),Date_depart) ; 
-			request.setAttribute("listTrajets", trajets);
-			request.getRequestDispatcher("/WEB-INF/resultatRechercheTrajet.jsp").forward(request, response);
-			return ;
-			
-			
-		}
+	
 		
 		if((todo!=null) && (todo.equals("nmbretapes"))) {
 			
@@ -163,7 +165,7 @@ public class TrajetController extends HttpServlet {
 					
 					 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
 					 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
-					
+					 u= facade.findUtilisateur( currentLogin );
 					Trajet trajet = new Trajet(heure_depart, date_depart,prixt, villed, villea,nbr_etapes,nbr_place,u);
 					trajetfcd.add(trajet);
 
@@ -179,10 +181,24 @@ public class TrajetController extends HttpServlet {
 					
 					//request.getSession().setAttribute("SuccessTrajet", true);
 					request.setAttribute("success", "ok");
-					request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+					
+					
+					request.getRequestDispatcher("/trajet?&todo=listerTrajets").forward(request, response);
 					
 					return ; 
 		}
+		
+		
+		
+		
+		u = facade.findUtilisateur( currentLogin ) ;
+		 		if(!u.isHasVoiture()) {
+		 			 request.getSession().setAttribute("ajout","false");
+		 		     request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+		 		     return;
+				     
+		 		}
+
 
 		request.getRequestDispatcher("/WEB-INF/etapes.jsp").forward(request, response);
 

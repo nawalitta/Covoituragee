@@ -39,12 +39,57 @@ public class ReservationFacade {
 
 	
 	public boolean ajoutReservation(Reservation r){
-		
-			em.persist(r);
-			return true ; 
+		    em.persist(r);
+            return true ; 
  
+	}
+	
+	public boolean annulerReservation(ReservationPK resPk,Trajet tj){
+		
+		Reservation res=em.find(Reservation.class, resPk);
+		if(res.isConfirme()) {
+			
+			int nbrPlaces=res.getNbrPlaceReserve()+tj.getNbrPlaces();
+			tj.setNbrPlaces(nbrPlaces);
+			em.merge(tj);
+			
+		}
+		em.remove(res);
+		return true;
 		
 	}
+	
+	public boolean validerReservation(ReservationPK resPk,Trajet tj){
+		
+		Reservation res=em.find(Reservation.class, resPk);
+		if(tj.getNbrPlaces() >= res.getNbrPlaceReserve() ) {
+			res.setConfirme(true);
+			int nbrPlace=tj.getNbrPlaces()-res.getNbrPlaceReserve();
+			tj.setNbrPlaces(nbrPlace);
+			em.merge(tj);
+			em.merge(res);
+			return true;
+		}
+		return false;
+		
+	}
+	
+	public boolean ignorerReservation(ReservationPK resPk,Trajet tj){
+		Reservation res=em.find(Reservation.class, resPk);
+        if(res.isConfirme()) {
+			
+			int nbrPlaces=res.getNbrPlaceReserve()+tj.getNbrPlaces();
+			tj.setNbrPlaces(nbrPlaces);
+			em.merge(tj);
+			
+		}
+		
+		res.setConfirme(false);
+		em.merge(res);
+		return true;
+		
+	}
+	
 	
 	
    

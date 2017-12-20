@@ -24,13 +24,21 @@ public class Utilisateur {
 	
 	
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.user")
 	private List<Reservation> listReservation;
 	public List<Reservation> getListReservation() {
 		return listReservation;
 	}
 	public void setListReservation(List<Reservation> listReservation) {
 		this.listReservation = listReservation;
+	}
+	private Boolean hasVoiture;
+	public boolean isHasVoiture() {
+		return hasVoiture;
+	}
+	public void setHasVoiture(boolean hasVoiture) {
+		this.hasVoiture = hasVoiture;
 	}
 	public String getNomComplet() {
 		return nomComplet;
