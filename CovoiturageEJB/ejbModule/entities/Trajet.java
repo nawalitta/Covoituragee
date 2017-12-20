@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -21,10 +22,35 @@ public class Trajet {
 
 	@Id   @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTrajet;
+	
+	@OrderBy(" heureDepart ASC")
 	private String heureDepart;
+	private int prix;
+
 	private String datedepart;
 	private int nbrPlaces;
 
+	private int nbrEtapes;
+	
+	//@OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
+	@OneToMany(mappedBy= "trajet")
+	private List<Etape> lesEtapes ;
+	
+	public int getNbrEtapes() {
+		return nbrEtapes;
+	}
+
+	public void setNbrEtapes(int nbrEtapes) {
+		this.nbrEtapes = nbrEtapes;
+	}
+
+	/*public List<Etape> getLesEtapes() {
+		return lesEtapes;
+	}
+
+	public void setLesEtapes(List<Etape> lesEtapes) {
+		this.lesEtapes = lesEtapes;
+	}*/
 	@ManyToOne
 	@JoinColumn(name= "utilisateur_id")
 	private Utilisateur utilisateur;
@@ -38,7 +64,7 @@ public class Trajet {
 	}
 	@OneToOne
 	private Ville villeDepart;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.trajet", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "id.trajet", cascade = CascadeType.ALL)
 	private List<Reservation> listReservation;
 	
 	public Trajet() {
@@ -53,12 +79,14 @@ public class Trajet {
 		this.listReservation = listReservation;
 	}
 
-	public Trajet(String heureDepart, String datedepart, Ville villeDepart, Ville villeArrive, int nbrPlaces,Utilisateur utilisateur) {
+	public Trajet(String heureDepart, String datedepart,int prix, Ville villeDepart,  Ville villeArrive,int nbrEtapes , int nbrPlaces,Utilisateur utilisateur) {
 		this.heureDepart = heureDepart;
 		this.datedepart = datedepart;
 		this.villeDepart = villeDepart;
 		this.villeArrive = villeArrive;
 		this.nbrPlaces = nbrPlaces;
+		this.nbrEtapes = nbrEtapes;
+		this.prix=prix ;
 		this.utilisateur =utilisateur ;
 	}
 	@OneToOne 

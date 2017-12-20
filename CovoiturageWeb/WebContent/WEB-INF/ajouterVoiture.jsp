@@ -14,6 +14,8 @@
 	            <option value="${gabarit.idGabarit}">${gabarit.libelleGabarit}</option>
 	       </c:forEach>
 		</select>
+		              <input type='hidden'   name="success" value="ok" >
+		
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="voiture" value="ajouterVoiture">Ajouter</button>
       </form>
 					</div>

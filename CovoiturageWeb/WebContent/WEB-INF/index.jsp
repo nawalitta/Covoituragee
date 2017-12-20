@@ -14,20 +14,18 @@
 			</div>
 		</div>
 	</div>
+	
 		
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div class="text-center">
-					<h2>Multi Purpose Theme</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br>
-					vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
-					lorem sit amet scelerisque justo</p>
-				</div>
-				<hr>
-			</div>
-		</div>
-	</div>
+		
+		<%  if(  request.getAttribute("success") != null &&  (request.getAttribute("success").equals("ok")  )) {%>
+		
+		
+	<div class="alert alert-success">
+    <strong>Success!</strong> Trajet Ajouté avec succèes ! 
+    </div>
+    
+	          <%} %>
+	
 	
 	<div class="container">
 		<div class="row">

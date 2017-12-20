@@ -1,6 +1,9 @@
 package Servlets;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -10,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ejbs.EtapeFacade;
 import ejbs.Facade;
 import ejbs.TrajetFacade;
+import entities.Etape;
 import entities.Trajet;
 import entities.Utilisateur;
 import entities.Ville;
@@ -29,11 +34,15 @@ public class TrajetController extends HttpServlet {
 	@EJB
 	TrajetFacade trajetfcd;
 	
+	@EJB
+	EtapeFacade etapefcd;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String todo=request.getParameter("todo");
 		String currentLogin= (String) request.getSession().getAttribute("login");
 		Utilisateur u = facade.findUtilisateur( currentLogin ) ;
 		
+
 		List<Ville> villes = trajetfcd.getAllVille() ;
 		request.setAttribute("listville", villes);
 		
@@ -43,7 +52,7 @@ public class TrajetController extends HttpServlet {
 			return ; 
 			}
 		
-		if((todo!=null) && (todo.equals("clickModifiertrajet"))) {
+		/*if((todo!=null) && (todo.equals("clickModifiertrajet"))) {
 			
 					int trajet_id = (int) request.getSession().getAttribute("trajet_id");
 					Trajet trajeta = trajetfcd.getTrajet(trajet_id) ; 
@@ -62,7 +71,7 @@ public class TrajetController extends HttpServlet {
 					 trajetfcd.modifierTrajet(trajet); 
 			
 					request.getRequestDispatcher("/trajet?todo=listerTrajets").forward(request, response);
-	     }
+	     } */
 		
 		if((todo!=null) && (todo.equals("modifierTrajet"))){
 					List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin);
@@ -98,6 +107,9 @@ public class TrajetController extends HttpServlet {
 				
 		if((todo!=null) && (todo.equals("listerTrajets"))) {
 			List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin) ;
+			
+			
+			
 			request.setAttribute("listTrajets", trajets);
 			System.out.println(trajets.size());
 			request.getRequestDispatcher("/WEB-INF/mesTrajets.jsp").forward(request, response);
@@ -111,9 +123,12 @@ public class TrajetController extends HttpServlet {
 		
 		if((todo!=null) && (todo.equals("recherchetrajet"))) {
 			
+			
 			String Ville_depart = request.getParameter("vdepart"); 
 			String Ville_arrive = request.getParameter("varrive");
-			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive)) ; 
+			String Date_depart = request.getParameter("ddepart");
+
+			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive),Date_depart) ; 
 			request.setAttribute("listTrajets", trajets);
 			request.getRequestDispatcher("/WEB-INF/resultatRechercheTrajet.jsp").forward(request, response);
 			return ;
@@ -121,24 +136,55 @@ public class TrajetController extends HttpServlet {
 			
 		}
 		
-		if((todo!=null) && (todo.equals("ajoutrajet"))) {
+		if((todo!=null) && (todo.equals("nmbretapes"))) {
+			
+			//request.setAttribute("nbrEtapes", request.getParameter("nbrEtapes"));
+			request.getSession().setAttribute("nbrEtapes", request.getParameter("nbrEtapes"));
+			request.getRequestDispatcher("/WEB-INF/AjouterTrajet.jsp").forward(request, response);
+
+		}
 		
+		
+		if((todo!=null) && (todo.equals("ajoutrajet"))) {
+	
+
+			//request.getSession().setAttribute("SuccessTrajet",false );
 					String vdepart = request.getParameter("vdepart");
 					String varrive = request.getParameter("varrive");
 					String heure_depart = request.getParameter("hdepart"); 
 					String date_depart = request.getParameter("ddepart");
+					int prixt =Integer.parseInt(request.getParameter("prixt")) ;
+					String success = request.getParameter("success");
+
 					System.out.println(heure_depart);
 					System.out.println(date_depart);
-					String nbr_place = request.getParameter("nbrp");
+					int nbr_place = Integer.parseInt( request.getParameter("nbrp"));
+					int nbr_etapes = Integer.parseInt((String) request.getSession().getAttribute("nbrEtapes"));  
+					
 					 Ville villed = trajetfcd.getVille(Integer.parseInt(vdepart)) ; 
 					 Ville villea = trajetfcd.getVille(Integer.parseInt(varrive)) ; 
-					Trajet trajet = new Trajet(heure_depart, date_depart, villed, villea,Integer.parseInt( nbr_place),u);
+					
+					Trajet trajet = new Trajet(heure_depart, date_depart,prixt, villed, villea,nbr_etapes,nbr_place,u);
 					trajetfcd.add(trajet);
+
+					for(int i=1 ; i<=nbr_etapes ;i++) {
+						//	Etape(Ville ville, Trajet trajet, int prix)
+							
+						Etape t =	new Etape (trajetfcd.getVille(Integer.parseInt(request.getParameter("etape"+i))),
+									trajet, Integer.parseInt( request.getParameter("prix"+i)) )  ;
+							
+							
+							etapefcd.add( t) ;
+						}
+					
+					//request.getSession().setAttribute("SuccessTrajet", true);
+					request.setAttribute("success", "ok");
 					request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+					
 					return ; 
 		}
 
-		request.getRequestDispatcher("/WEB-INF/AjouterTrajet.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/etapes.jsp").forward(request, response);
 
 		
 		

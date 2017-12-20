@@ -7,6 +7,7 @@
 				<table class="table" align="center">
 					<thead>
 						<tr>
+						
 							<th>Conducteur </th>
 							<th>Ville Départ</th>
 							<th>Ville Arrivée</th>
@@ -15,9 +16,11 @@
 							<th>Nombre de place </th>
 							<th>Réserver</th>
 							
+							
 						</tr>
 					</thead>
 					<c:forEach items="${listTrajets}" var="trajet">
+					
 						<tr>
 						    <td class="info">${trajet.utilisateur.login}</td>
 							<td class="info">${trajet.villeDepart.labelVille}</td>

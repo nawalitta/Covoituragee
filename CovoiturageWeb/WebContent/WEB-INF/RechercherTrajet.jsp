@@ -34,6 +34,12 @@
     </div>
   </div>
   
+  <div >
+    <label  > Date départ ?</label>
+    <div >
+      <input type="date"   id="depart" name="ddepart" >
+    </div>
+  </div>
   <button type="submit" name="todo" value="recherchetrajet" > Rechercher </button>
 </form>
 					</div>

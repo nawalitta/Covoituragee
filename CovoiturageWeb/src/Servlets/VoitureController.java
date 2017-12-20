@@ -34,10 +34,15 @@ public class VoitureController extends HttpServlet {
 	     }
 	     if((voiture!=null) && (voiture.equals("ajouterVoiture"))) {
 			 String modele = request.getParameter("modele");
+			 String success = request.getParameter("success");
+
 			 int idGabarit= Integer.parseInt(request.getParameter("gabarit"));
 			 request.setAttribute("ajoutVoi", facade.ajouterVoiture(login,modele,idGabarit));
 			 request.getSession().setAttribute("ajout","true");
+			 request.setAttribute("success",success );
+
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+			 
 			 return;
 	     }
 	     if((voiture!=null) && (voiture.equals("supprimer"))) {

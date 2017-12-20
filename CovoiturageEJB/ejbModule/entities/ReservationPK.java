@@ -9,6 +9,10 @@ import javax.persistence.ManyToOne;
 
 public class ReservationPK implements Serializable {
 	
+	public ReservationPK() {
+		super();
+	}
+
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne

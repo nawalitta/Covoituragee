@@ -69,6 +69,7 @@ public class ConnexionController extends HttpServlet {
 						
 					}
 				}else {
+					request.setAttribute("alert", "alert");
 					 request.getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
 				     return;
 					

@@ -21,6 +21,9 @@ public class Utilisateur {
 	private String mail;
 	private String nomComplet;
 	private String numeroTel;
+	
+	
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.user")
 	private List<Reservation> listReservation;
 	public List<Reservation> getListReservation() {

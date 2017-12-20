@@ -6,6 +6,15 @@
 				<div class="portfolios">
 					<div class="text-center">
 						<form class="form-signin" method="post" action="connexion">
+						
+								<%  if(  request.getAttribute("alert") != null &&  (request.getAttribute("alert").equals("alert")  )) {%>
+						
+						<div class="alert alert-danger">
+  						<strong>Les mots de passe ne sont pas identiques</strong>
+						</div>
+						<% }%>
+						
+						
 						        <h2 class="form-signin-heading">Inscription </h2>
 						        <div class="form-group">
 							        <label for="inputEmail" class="sr-only">Nom Complet</label>

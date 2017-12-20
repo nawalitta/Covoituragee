@@ -1,5 +1,6 @@
 package ejbs;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -67,15 +68,16 @@ public class TrajetFacade {
 	}
 	
 	
-	public List<Trajet> rechercherTrajet(int a , int b) {
+	public List<Trajet> rechercherTrajet(int a , int b, String d) {
 	
-		Query q = em.createQuery("From Trajet t where t.villeDepart=? and t.villeArrive=? ");
+		
+		Query q = em.createQuery("From Trajet t where t.villeDepart=? and t.villeArrive=?  and t.datedepart=?  order by t.heureDepart ASC" );
 		
 		 q.setParameter(1, getVille(a)) ;
 		 q.setParameter(2, getVille(b)) ;
-		 
+		 q.setParameter(3, d) ;
+
 		 return q.getResultList() ;
-		
 		
 	}
 
