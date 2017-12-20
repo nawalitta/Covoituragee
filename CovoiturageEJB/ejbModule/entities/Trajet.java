@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -29,13 +30,31 @@ public class Trajet {
 
 	private String datedepart;
 	private int nbrPlaces;
-
+	@ManyToOne
+	@JoinColumn(name= "utilisateur_id")
+	private Utilisateur utilisateur;
 	private int nbrEtapes;
 	
-	//@OneToMany(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
-	@OneToMany(mappedBy= "trajet")
-	private List<Etape> lesEtapes ;
+
+	@OneToMany( mappedBy= "trajet", fetch = FetchType.EAGER)
+	private Set<Etape> lesEtapes ;
 	
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+
+	public Set<Etape> getLesEtapes() {
+		return lesEtapes;
+	}
+
+	public void setLesEtapes(Set<Etape> lesEtapes) {
+		this.lesEtapes = lesEtapes;
+	}
+
 	public int getNbrEtapes() {
 		return nbrEtapes;
 	}
@@ -51,9 +70,7 @@ public class Trajet {
 	public void setLesEtapes(List<Etape> lesEtapes) {
 		this.lesEtapes = lesEtapes;
 	}*/
-	@ManyToOne
-	@JoinColumn(name= "utilisateur_id")
-	private Utilisateur utilisateur;
+	
 	
 	public Utilisateur getUtilisateur() {
 		return utilisateur;

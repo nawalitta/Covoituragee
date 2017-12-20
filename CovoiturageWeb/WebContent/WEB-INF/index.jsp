@@ -17,14 +17,7 @@
 	
 		
 		
-		<%  if(  request.getAttribute("success") != null &&  (request.getAttribute("success").equals("ok")  )) {%>
 		
-		
-	<div class="alert alert-success">
-    <strong>Success!</strong> Trajet Ajouté avec succèes ! 
-    </div>
-    
-	          <%} %>
 	
 	
 	<div class="container">

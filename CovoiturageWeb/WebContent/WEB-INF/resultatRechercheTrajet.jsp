@@ -23,9 +23,11 @@
 						<th>Conducteur </th>
 						<th>Ville Départ</th>
 						<th>Ville Arrivée</th>
+						<th>Etape</th>
 						<th>Date Départ</th>
 						<th>Heure Départ</th>
 						<th>Nombre de place </th>
+						<th>prix </th>
 						<th>Réserver</th>
 						
 					</tr>
@@ -35,9 +37,17 @@
 					    <td class="info">${trajet.utilisateur.login}</td>
 						<td class="info">${trajet.villeDepart.labelVille}</td>
 						<td class="info">${trajet.villeArrive.labelVille}</td>
+                        <c:set var='t' value=" " /> 
+						<c:forEach items="${trajet.lesEtapes}" var="etape">
+						 <c:set var='t' value="${t} ${etape.ville.labelVille} ->" /> 
+							</c:forEach>
+						<td class="info">${t}</td>
+					
+						
 						<td class="info">${trajet.datedepart}</td>
 						<td class="info" >${trajet.heureDepart}</td>
 						<td class="success">${trajet.nbrPlaces}</td>
+						<td class="success">${trajet.prix}</td>
 					<td   class="danger"> <a class="pure-button"
 					
              href="ReservationController?trajet_id=${trajet.idTrajet }&todo=reserverTrajet">Réserver</a></td> 

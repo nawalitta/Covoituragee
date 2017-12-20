@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import entities.Etape;
 import entities.Reservation;
 import entities.Trajet;
 import entities.Utilisateur;
@@ -72,15 +73,23 @@ public class TrajetFacade {
 	
 	public List<Trajet> rechercherTrajet(int a , int b, String d) {
 	
+		List<Trajet> newList = new ArrayList<Trajet>();
+	
 		
 		Query q = em.createQuery("From Trajet t where t.villeDepart=? and t.villeArrive=?  and t.datedepart=?  order by t.heureDepart ASC" );
 		
+		Query q1 = em.createQuery("select t From Trajet t , Etape e where t.idTrajet = e.trajet.idTrajet and t.villeDepart=? and e.ville=?  order by t.heureDepart ASC " );
+
 		 q.setParameter(1, getVille(a)) ;
 		 q.setParameter(2, getVille(b)) ;
 		 q.setParameter(3, d) ;
-
-		 return q.getResultList() ;
+		 q1.setParameter(1, getVille(a)) ;
+		 q1.setParameter(2, getVille(b)) ;
+			newList.addAll(q1.getResultList());
+			newList.addAll(q.getResultList());
 		
+			return newList ; 
+		 
 	}
 	
 	public ArrayList<Reservation> getListReservationTrajet(int trajet_id){
@@ -89,6 +98,7 @@ public class TrajetFacade {
 		return (ArrayList<Reservation>) q.getResultList() ;
 		
 	}
+
 
 	
 	

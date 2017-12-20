@@ -22,6 +22,42 @@ public class Etape {
 	
 	
 
+	public Etape() {
+		
+	}
+
+	public int getIdEtape() {
+		return idEtape;
+	}
+
+	public void setIdEtape(int idEtape) {
+		this.idEtape = idEtape;
+	}
+
+	public Ville getVille() {
+		return ville;
+	}
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
+
+	public Trajet getTrajet() {
+		return trajet;
+	}
+
+	public void setTrajet(Trajet trajet) {
+		this.trajet = trajet;
+	}
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
+	}
+
 	@ManyToOne
 	@JoinColumn(name= "trajet_id")
 	private Trajet trajet ; 

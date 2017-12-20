@@ -61,6 +61,7 @@ public class TrajetController extends HttpServlet {
 
 			List<Trajet> trajets=trajetfcd.rechercherTrajet(Integer.parseInt(Ville_depart) , Integer.parseInt(Ville_arrive),Date_depart) ; 
 			request.setAttribute("listTrajets", trajets);
+			
 			request.getRequestDispatcher("/WEB-INF/resultatRechercheTrajet.jsp").forward(request, response);
 			return ;
 			
@@ -127,11 +128,16 @@ public class TrajetController extends HttpServlet {
 				
 		if((todo!=null) && (todo.equals("listerTrajets"))) {
 			List<Trajet> trajets = trajetfcd.TrajetsDeUser(currentLogin) ;
+			String success = (String) request.getAttribute("success") ;
 			
+
+			request.setAttribute("success", success);
+
 			
 			
 			request.setAttribute("listTrajets", trajets);
 			System.out.println(trajets.size());
+
 			request.getRequestDispatcher("/WEB-INF/mesTrajets.jsp").forward(request, response);
 			return ; 
 		}
@@ -150,7 +156,6 @@ public class TrajetController extends HttpServlet {
 		if((todo!=null) && (todo.equals("ajoutrajet"))) {
 	
 
-			//request.getSession().setAttribute("SuccessTrajet",false );
 					String vdepart = request.getParameter("vdepart");
 					String varrive = request.getParameter("varrive");
 					String heure_depart = request.getParameter("hdepart"); 
@@ -179,7 +184,6 @@ public class TrajetController extends HttpServlet {
 							etapefcd.add( t) ;
 						}
 					
-					//request.getSession().setAttribute("SuccessTrajet", true);
 					request.setAttribute("success", "ok");
 					
 					
