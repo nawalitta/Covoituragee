@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ejbs.Facade;
+import entities.Utilisateur;
 
 /**
  * Servlet implementation class ConnexionServlet
@@ -80,7 +81,12 @@ public class ConnexionController extends HttpServlet {
 	       return;
 
 		}	
-		request.getSession().setAttribute("ajout","false"); 
+		Utilisateur u = facade.findUtilisateur( currentLogin ) ;
+		if(u.isHasVoiture()) {
+			request.getSession().setAttribute("ajout","true"); 
+		}else {
+			request.getSession().setAttribute("ajout","false"); 
+		}
 		request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 
 		

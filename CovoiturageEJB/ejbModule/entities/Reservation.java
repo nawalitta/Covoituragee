@@ -26,6 +26,17 @@ public class Reservation {
 		this.nbrPlaceReserve = nbrPlaceReserve;
 		this.confirme = confirme;
 	}
+	public Reservation() {
+		
+	}
+	
+	public ReservationPK getId() {
+		return id;
+	}
+	public void setId(ReservationPK id) {
+		this.id = id;
+	}
+
 	private int nbrPlaceReserve;
 	private boolean confirme;
 	public int getNbrPlaceReserve() {

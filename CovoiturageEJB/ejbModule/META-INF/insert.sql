@@ -1,6 +1,6 @@
-insert into utilisateur (login,password) values ('admin','admin');
-insert into utilisateur (login,password) values   ('toto','toto');
-
+insert into utilisateur (login,password,hasVoiture) values ('admin','admin',FALSE);
+insert into utilisateur (login,password,hasVoiture) values   ('toto','toto',FALSE);
+insert into utilisateur (login, password, hasVoiture, numeroTel, nomComplet, mail) values ('safae','safae123',FALSE, '+33787427958','SAFAE EL ATLA', 'elatlasafae@gmail.com');
 
 insert into  ville (idville ,labelville) VALUES (1,'Paris'); 
 insert into  ville (idville , labelville) VALUES (2,'Orléans') ;

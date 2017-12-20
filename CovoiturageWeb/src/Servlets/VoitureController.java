@@ -28,39 +28,49 @@ public class VoitureController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	     String voiture=request.getParameter("voiture");
 	     String login = (String) request.getSession().getAttribute("login");
+	     
 	     if(login==null) {
+	    	 
 	    	 	this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
 	    	 	return;
 	     }
 	     if((voiture!=null) && (voiture.equals("ajouterVoiture"))) {
+	    	 
 			 String modele = request.getParameter("modele");
 			 int idGabarit= Integer.parseInt(request.getParameter("gabarit"));
 			 request.setAttribute("ajoutVoi", facade.ajouterVoiture(login,modele,idGabarit));
 			 request.getSession().setAttribute("ajout","true");
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 			 return;
+			 
 	     }
 	     if((voiture!=null) && (voiture.equals("supprimer"))) {
+	    	 
 			 request.setAttribute("supprimer", facade.supprimerVoiture(login));
 			 request.getSession().setAttribute("ajout","false");
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 			 return;
+			 
 		  }
 	     if((voiture!=null) && (voiture.equals("modifier"))) {
+	    	 
 	    	   request.setAttribute("modele", facade.getVoiture(login).getModele());
 	    	   request.setAttribute("nonlistGabarit", facade.getNonListGabarit(login));
 	    	   request.setAttribute("idGabaritSelectionne",  facade.getVoiture(login).getGabarit().getIdGabarit());
 	    	   request.setAttribute("libelleGabaritSelectionne",  facade.getVoiture(login).getGabarit().getLibelleGabarit());
 	 	    this.getServletContext().getRequestDispatcher("/WEB-INF/modifierVoiture.jsp").forward(request, response);
 	 	    return;
+	 	    
 		  }
 	     if((voiture!=null) && (voiture.equals("modifierVoiture"))) {
+	    	 
 	    	     String modele = request.getParameter("modele");
 	    	     int idGabarit= Integer.parseInt(request.getParameter("gabarit"));
 			 request.setAttribute("modele", facade.modifierVoiture(login,modele,idGabarit));
 			 request.getSession().setAttribute("ajout","true");
 			 this.getServletContext().getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
 			 return;
+			 
 		 }
 	    request.setAttribute("listGabarit", facade.getAllGabarit()); 
 	    request.getSession().setAttribute("ajout","false");

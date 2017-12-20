@@ -1,7 +1,20 @@
 <%@ include file = "header.jsp" %>
 
-	<h1>Liste des trajets planifiés</h1>
-	
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="portfolios">
+				<div class="text-center">
+					   <h2>Liste des trajets planifiés </h2>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+
 	<div style="margin-top: 35px;">
 		
 				<table class="table" align="center">
@@ -23,10 +36,10 @@
 							<td class="info">${trajet.villeArrive.labelVille}</td>
 							<td class="info">${trajet.datedepart}</td>
 							<td class="info" >${trajet.heureDepart}</td>
-							<td class="success">${trajet.nbrPlaces}</td>
+							<td class="info">${trajet.nbrPlaces}</td>
 						<td   class="danger"> <a class="pure-button"
               href="TrajetController?trajet_id=${trajet.idTrajet }&todo=delTrajet">Supprimer</a></td>
-							<td>
+							<td class="success">
 							<a class="pure-button"
 		href="trajet?trajet_id=${trajet.idTrajet }&todo=modifierTrajet">Modifier</a></td>
 						
@@ -35,4 +48,9 @@
 				</table>
 			
 	</div>
+	<hr>
+</div>
+	
+		
 <%@ include file = "footer.jsp" %>
+	

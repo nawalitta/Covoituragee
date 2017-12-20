@@ -16,6 +16,10 @@ public class ReservationPK implements Serializable {
 	
 	@ManyToOne
 	private Trajet trajet;
+	
+	public ReservationPK() {
+		
+	}
 
 	public Utilisateur getUser() {
 		return user;
