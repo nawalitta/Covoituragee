@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en"     charset=utf-8     >
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>eNno Bootstrap Template</title>
+    <title>Voyagez moins cher|Covoiturage</title>
 
     <!-- Bootstrap -->
     <link href="enno/css/bootstrap.min.css" rel="stylesheet">
@@ -37,16 +37,16 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><span>eNno</span></a>
+				<a class="navbar-brand" href="controller"><span>Covoiturage</span></a>
 			</div>
 			<div class="navbar-collapse collapse">							
 				<div class="menu">
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="controller">Home</a></li>
-						<li role="presentation"><a href="TrajetController?&todo=listerTrajets">Services</a></li>
-							<li role="presentation" ><a href="TrajetController">Ajouter Trajet</a></li>
-						<li role="presentation"><a href="/CovoiturageWeb/connexion">Mon Compte</a></li>
-						<li role="presentation"><a href="TrajetController?&todo=clickRecherche">Contact</a></li>	
+						<!-- <li role="presentation"><a href="TrajetController?&todo=listerTrajets">Services</a></li>-->
+							<li role="presentation" ><a href="TrajetController">Proposer un trajet</a></li>
+						<li role="presentation"><a href="TrajetController?&todo=clickRecherche">Chercher un trajet</a></li>
+						<li role="presentation"><a href="/CovoiturageWeb/connexion">Mon Compte</a></li>	
 						
 						<% if (session.getAttribute("connecter") != null && session.getAttribute("connecter").equals("ok")) { %>
 						<li role="presentation"><a href="/CovoiturageWeb/deconnexion">Déconnexion</a></li>

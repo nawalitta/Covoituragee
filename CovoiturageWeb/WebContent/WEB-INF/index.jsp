@@ -6,8 +6,8 @@
 			<div class="slider">
 				<div class="img-responsive">
 					<ul class="bxslider">				
-						<li><img src="enno/img/01.jpg" alt=""/></li>								
-						<li><img src="enno/img/01.jpg" alt=""/></li>	
+						<li><img src="enno/img/img-cov-1.png" alt=""/></li>								
+						<li><img src="enno/img/img-cov2.png" alt=""/></li>	
 						<li><img src="enno/img/01.jpg" alt=""/></li>			
 					</ul>
 				</div>	
@@ -19,46 +19,35 @@
 		
 		
 	
-	
+    
+	         
+	          <div class="text-center">
+					      <h2>Covoiturage, c'est facile</h2>
+			</div>
+	          <hr/>
+	          <br/>
+
 	<div class="container">
 		<div class="row">
 			<div class="box">
 				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-						<h4>Responsive</h4>					
-							<div class="icon">
-								<i class="fa fa-heart-o fa-3x"></i>
-							</div>						
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
+					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">					
+						<h3 class="HomeBlock-title HomeBlock-title--secondary">1. Envie de bouger&nbsp;?</h3>
+                           <p class="u-gray u-marginNone">Publiez ou recherchez votre trajet .</p>
 					</div>
 				</div>
 				
 				<div class="col-md-4">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.0s">
-						<h4>Multi Purpose</h4>
-						<div class="icon">
-							<i class="fa fa-desktop fa-3x"></i>
-						</div>
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
+						 <h3 class="HomeBlock-title HomeBlock-title--secondary">2. Choisissez votre trajet !</h3>
+                                <p class="u-gray u-marginNone">Les passagers réservent en ligne les places proposées.</p>
 					</div>
 				</div>
 				
 				<div class="col-md-4">
 					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.6s">
-						<h4>Easy Customize</h4>
-						<div class="icon">
-							<i class="fa fa-location-arrow fa-3x"></i>
-						</div>
-						<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero</p>
-						<div class="ficon">
-							<a href="#" class="btn btn-default" role="button">Read more</a>
-						</div>
+						<h3 class="HomeBlock-title HomeBlock-title--secondary">3. C'est parti&nbsp;!</h3>
+                         <p class="u-gray u-marginNone">Voyagez ensemble puis laissez un avis aux autres covoitureurs.</p>
 					</div>
 					
 				</div>
@@ -71,73 +60,12 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div class="text-center">
-					<h2>Galleries</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu<br>
-					vestibulum volutpat libero sollicitudin vitae Curabitur ac aliquam <br>
+					<h2>Le covoiturage confiance</h2>
 					</p>
 				</div>
 				<hr>
 			</div>
 		</div>
-	</div>
-	
-	<div class="content">
-		<div class="grid">
-			<figure class="effect-zoe">
-				<img src="enno/img/25.jpg" alt="img25"/>
-				<figcaption>
-					<h2>Title <span>Name</span></h2>
-					<p class="icon-links">
-						<a href="#"><span class="icon-heart"></span></a>
-						<a href="#"><span class="icon-eye"></span></a>
-						<a href="#"><span class="icon-paper-clip"></span></a>
-					</p>
-					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>			
-			</figure>
-			<figure class="effect-zoe">
-				<img src="enno/img/26.jpg" alt="img26"/>
-				<figcaption>
-					<h2>Title <span>Name</span></h2>
-					<p class="icon-links">
-						<a href="#"><span class="icon-heart"></span></a>
-						<a href="#"><span class="icon-eye"></span></a>
-						<a href="#"><span class="icon-paper-clip"></span></a>
-					</p>
-					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>			
-			</figure>
-		</div>
-	</div>
-	
-	<div class="content">
-		<div class="grid">
-			<figure class="effect-zoe">
-				<img src="enno/img/27.jpg" alt="img27"/>
-				<figcaption>
-					<h2>Title <span>Name</span></h2>
-					<p class="icon-links">
-						<a href="#"><span class="icon-heart"></span></a>
-						<a href="#"><span class="icon-eye"></span></a>
-						<a href="#"><span class="icon-paper-clip"></span></a>
-					</p>
-					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>			
-			</figure>
-			<figure class="effect-zoe">
-				<img src="enno/img/30.jpg" alt="img30"/>
-				<figcaption>
-					<h2>Title <span>Name</span></h2>
-					<p class="icon-links">
-						<a href="#"><span class="icon-heart"></span></a>
-						<a href="#"><span class="icon-eye"></span></a>
-						<a href="#"><span class="icon-paper-clip"></span></a>
-					</p>
-					<p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in his face.</p>
-				</figcaption>			
-			</figure>
-		</div>
-	</div>
-	
+	</div>	
 <%@ include file = "footer.jsp" %>
 	
